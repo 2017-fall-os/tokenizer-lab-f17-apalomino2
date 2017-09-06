@@ -6,7 +6,7 @@ clear:
 	rm *~ *#*#
 demo:
 	./test
-test: mytoc.o test.o
+test: mytoc.o test.o string.o
 
 test.o: test.c mytoc.h string.h
 

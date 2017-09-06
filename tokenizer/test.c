@@ -1,10 +1,28 @@
 #include <unistd.h>
+#include <stdio.h>
 #include "mytoc.h"
 #include "string.h"
 
-int main(){
-  char *buf = "test\n";
-  for(int i=0; i<5; i++){
-    write(1, buf, strlen(buf));
+void print(char *str){
+  write(1, str, strlen(str));
+}
+
+void printVec(char **tokenVec){
+  printf("~~~~Vector~~~~");
+  for(;*tokenVec; tokenVec++){
+    printf(*tokenVec);
   }
+  printf("~~~~~~~~~~~~~~");
+}
+
+int main(){
+  char buf[128];
+  char delim = ' ';
+
+  for(;;){
+    print("$");
+    char **tokenVec = mytoc(buf, delim);
+    //printVec(tokenVec);
+  }
+  
 }
