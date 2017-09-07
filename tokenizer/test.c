@@ -18,7 +18,20 @@ int main(){
   for(;;){
     print("$");
     char **tokenVec = mytoc(buf, delim);
-    printVec(tokenVec);
-  }
-  
+    if(!strcmp(tokenVec[0], "exit") && !tokenVec[1])
+      break;
+    if(!strcmp(tokenVec[0], "\\d")){
+      if(!tokenVec[1] ||
+	 !strcmp(tokenVec[1], "\\") ||
+	 !strcmp(tokenVec[1], "d") ||
+	 strlen(tokenVec[1]) != 1){
+	   print("Invalid delimiter\n");
+      }
+      else{
+	delim = tokenVec[1][0];
+      }
+    }
+    else
+      printVec(tokenVec);
+  }  
 }

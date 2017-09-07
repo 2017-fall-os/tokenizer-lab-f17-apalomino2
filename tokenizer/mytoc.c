@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include "mytoc.h"
 #include "utility.h"
-#include <stdio.h>
 
 int countTokens(char *buf, char delim){
   int count = 0;

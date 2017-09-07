@@ -14,3 +14,13 @@ int strlen(char *str){
   }
   return count;
 }
+
+int strcmp(char *str1, char *str2){
+  while(*str1 && *str2){
+    if(*str1 != *str2)
+      break;
+    str1++;
+    str2++;
+  }
+  return *str2 - *str1;
+}
