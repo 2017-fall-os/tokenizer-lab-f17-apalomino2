@@ -22,7 +22,8 @@ To demonstrate proficiency with:
 1. To compile type "make" in source directory.  
 2. To run type "make demo" or "./test". Once running, the program will print "$" and await input.  
 3. Enter any string and it be broken down into tokens based on the delimiter. The default delimiter is ' '.  
-4. To change the delimiter, enter "\d[current delimiter][new delimiter]" where [ ] represents only 1 character. The character '\' and 'd' are not allowed as delimiters.
+4. To change the delimiter, enter "\d[current delimiter][new delimiter]" where [ ] represents only 1 character.
+The character '\\' and 'd' are not allowed as delimiters.
    * Examples:
    * "\d :" changes the default delimiter to ':'.
    * "\d: " changes the delimiter from ':' to ' '.
