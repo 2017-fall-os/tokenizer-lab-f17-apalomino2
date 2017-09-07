@@ -19,15 +19,18 @@ int main(){
     print("$");
     char **tokenVec = mytoc(buf, delim);
     if(!strcmp(tokenVec[0], "exit") && !tokenVec[1])
+      //exit keyword was entered alone
       break;
     if(!strcmp(tokenVec[0], "\\d")){
-      if(!tokenVec[1] ||
-	 !strcmp(tokenVec[1], "\\") ||
-	 !strcmp(tokenVec[1], "d") ||
-	 strlen(tokenVec[1]) != 1){
-	   print("Invalid delimiter\n");
+      //possible delimiter change request must meet requirements
+      if(strlen(tokenVec[1]) != 1 ||
+	!strcmp(tokenVec[1], "\\") ||
+	 !strcmp(tokenVec[1], "d"))
+	  {
+	    print("Invalid delimiter\n");
       }
       else{
+	//delimiter change
 	delim = tokenVec[1][0];
       }
     }

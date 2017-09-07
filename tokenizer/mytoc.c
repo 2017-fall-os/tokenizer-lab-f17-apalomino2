@@ -7,6 +7,7 @@ int countTokens(char *buf, char delim){
   int count = 0;
   
   while(*buf){
+    //buf is not 
     while(*buf == delim)
       buf++;
     if(*buf)
@@ -36,6 +37,7 @@ void fillVec(char **tokenVec, char *buf, char delim, int numTokens){
     //create and place token
     *tokenVec = calloc(numChars+1, sizeof(char));
     temp = *tokenVec;
+    //copy each char
     while(*buf && *buf != delim){
       *temp = *buf;
       buf++;
