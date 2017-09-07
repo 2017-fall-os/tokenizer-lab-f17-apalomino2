@@ -1,18 +1,14 @@
 #include <unistd.h>
-#include <stdio.h>
 #include "mytoc.h"
-#include "string.h"
-
-void print(char *str){
-  write(1, str, strlen(str));
-}
+#include "utility.h"
 
 void printVec(char **tokenVec){
-  printf("~~~~Vector~~~~");
+  print("~~~~Vector~~~~\n");
   for(;*tokenVec; tokenVec++){
-    printf(*tokenVec);
+    print(*tokenVec);
+    print("\n");
   }
-  printf("~~~~~~~~~~~~~~");
+  print("~~~~~~~~~~~~~~\n");
 }
 
 int main(){
@@ -22,7 +18,7 @@ int main(){
   for(;;){
     print("$");
     char **tokenVec = mytoc(buf, delim);
-    //printVec(tokenVec);
+    printVec(tokenVec);
   }
   
 }
