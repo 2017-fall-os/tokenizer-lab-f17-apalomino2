@@ -25,8 +25,9 @@ To demonstrate proficiency with:
 4. To change the delimiter, enter "\d[current delimiter][new delimiter]" where [ ] represents only 1 character.
 The character '\\' and 'd' are not allowed as delimiters.
    * Examples:
-   * "\d :" changes the default delimiter to ':'.
-   * "\d: " changes the delimiter from ':' to ' '.
+   * "\d :" changes the default delimiter to ':'
+   * "\d:+" changes the delimiter from ':' to '+'
+   * "\d+ " changes the delimiter from '+' to ' '
    
 5. To close the program type "exit".  
 
