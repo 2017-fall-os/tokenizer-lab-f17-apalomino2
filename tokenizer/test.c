@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include <stdlib.h>
 #include "mytoc.h"
 #include "utility.h"
 
@@ -11,6 +12,11 @@ void printVec(char **tokenVec){
   print("~~~~~~~~~~~~~~\n");
 }
 
+void freeTokens(char **tokenVec){
+  for(;*tokenVec; tokenVec++)
+    free(*tokenVec);
+}
+
 int main(){
   char buf[128];
   char delim = ' ';
@@ -19,22 +25,29 @@ int main(){
     print("$");
     char **tokenVec = mytoc(buf, delim);
     if(!strcmp(tokenVec[0], "exit") && !tokenVec[1])
-      //exit keyword was entered alone
+      //exit the programm
       break;
     if(!strcmp(tokenVec[0], "\\d")){
-      //possible delimiter change request must meet requirements
+      //possible delimiter change must meet requirements
       if(strlen(tokenVec[1]) != 1 ||
-	!strcmp(tokenVec[1], "\\") ||
-	 !strcmp(tokenVec[1], "d"))
-	  {
+	 !strcmp(tokenVec[1], "\\") ||
+	 !strcmp(tokenVec[1], "d")){
 	    print("Invalid delimiter\n");
       }
       else{
 	//delimiter change
 	delim = tokenVec[1][0];
+	print("Delimiter is now '");
+	print(tokenVec[1]);
+	print("'\n");
+	
       }
     }
-    else
+    else{
       printVec(tokenVec);
-  }  
+      freeTokens(tokenVec);
+      free(tokenVec);
+    }
+  }
+  print("Laterz! \\(^.^)/\n");
 }

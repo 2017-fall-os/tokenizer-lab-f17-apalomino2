@@ -8,8 +8,7 @@ void print(char *buf){
 int strlen(char *str){
   int count = 0;
   while(*str){
-    if(*str != '\\')
-      count++;
+    count++;
     str++;
   }
   return count;
