@@ -22,6 +22,9 @@ int main(){
   char delim = ' ';
 
   for(;;){
+    print("Current delimiter is '");
+    write(1, &delim, 1);
+    print("'\n");
     print("$");
     char **tokenVec = mytoc(buf, delim);
     if(!strcmp(tokenVec[0], "exit") && !tokenVec[1])
